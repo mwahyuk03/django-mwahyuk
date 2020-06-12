@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 SITE_ID = 1
 
 INSTALLED_APPS = [
+    'references.apps.ReferencesConfig',
     'account.apps.AccountConfig',
     'blog.apps.BlogConfig',
     'django.contrib.admin',

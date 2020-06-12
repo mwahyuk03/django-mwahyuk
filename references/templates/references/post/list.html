@@ -1,0 +1,28 @@
+{%extends 'references/base.html'%}
+{% load references_tags %}
+{% block title %} My References {% endblock title %}
+
+{% block content %}
+    <h1>My References :</h1>
+        <ul class="c">
+            {% for post in postsref %}
+     <h3><li>{{ post.title }}</li></h3>
+        </ul>
+        <p class="date">
+            Created {{ post.publish }} by {{ post.autor }}
+        </p>
+            {{ post.description| markdown | truncatewords_html:30 }}
+        <p>
+        <p>Link : 
+            <a href="{{post.link}}">{{post.link}}</a>
+        </p>
+            {% if post.author == request.user %}
+            <a href="{% url 'references:references_update' post.id post.slug %}">Update Post</a> |
+            <a href="{% url 'references:references_delete' post.id post.slug %}">Delete Post</a>
+            {% endif %}
+        </p>
+    {%endfor%}
+
+    {% include "pagination.html" with page=page_obj %}
+
+{% endblock content %}
