@@ -15,7 +15,7 @@ from django.views.generic import ListView, FormView, CreateView, UpdateView, Del
 
 class ReferencesListView(LoginRequiredMixin, ListView):
     queryset = Post.objects.all()
-    context_object_name = 'postsref'
+    context_object_name = 'refposts'
     paginate_by = 3
     template_name = 'references/post/list.html'
     

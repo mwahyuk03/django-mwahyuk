@@ -9,7 +9,7 @@
      <h3><li>{{ post.title }}</li></h3>
         </ul>
         <p class="date">
-            Created {{ post.publish }} by {{ post.autor }}
+            Created {{ post.publish }} by {{ post.author }}
         </p>
             {{ post.description| markdown | truncatewords_html:30 }}
         <p>
